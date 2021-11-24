@@ -1,7 +1,7 @@
 var express = require('express')
 var socket= require('socket.io')
 require('dotenv').config();
-const port = process.env.PORT||3535
+const port = process.env.PORT||8000
 var app=express()
 app.use((req, res, next) => {
     res.setHeader('Access-Control-Allow-Origin', '*');
@@ -11,7 +11,7 @@ app.use((req, res, next) => {
 });
 app.use(express.static('public'));
 var server = app.listen(port,function(){
-    console.log(`The server is running : ${port}`)
+    console.log(`The App server is running : ${port}`)
 })
 
 
