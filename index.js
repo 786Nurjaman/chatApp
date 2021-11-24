@@ -1,12 +1,12 @@
 var express = require('express')
 var socket= require('socket.io')
 require('dotenv').config();
-const port = process.env.PORT||8000
+const port = process.env.PORT||3535
 var app=express()
 
 app.use(express.static('public'));
 var server = app.listen(port,function(){
-    console.log("The server is running : http://localhost:8000/")
+    console.log(`The server is running : ${port}`)
 })
 
 
