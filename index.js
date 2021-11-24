@@ -3,7 +3,12 @@ var socket= require('socket.io')
 require('dotenv').config();
 const port = process.env.PORT||3535
 var app=express()
-
+app.use((req, res, next) => {
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Allow-Methods', 'GET, PUT, POST, DELETE');
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+    next();
+});
 app.use(express.static('public'));
 var server = app.listen(port,function(){
     console.log(`The server is running : ${port}`)
